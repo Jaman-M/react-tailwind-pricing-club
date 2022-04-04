@@ -1,8 +1,10 @@
+import { ArrowRightIcon } from '@heroicons/react/solid';
 import React from 'react';
-import { CheckCircleIcon } from '@heroicons/react/solid'
+import Benifit from '../Benifit/Benifit';
+
 
 const PricingOption = (props) => {
-    const{name,price} = props.option;
+    const{name,price, benifits} = props.option;
     return (
         <div className='bg-white p-4 rounded-lg'>
             <h2 className='
@@ -13,8 +15,13 @@ const PricingOption = (props) => {
             </p>
             <div>
                 <h3 className='text-2xl text-left'>Benifits: </h3>
-                <p className='flex items-center'> <CheckCircleIcon className='w-4 h-4 text-green-500 mr-2'></CheckCircleIcon> Awesome Feature </p>
+                {
+                    benifits.map(benifit=><Benifit benifit={benifit}></Benifit>)
+                }
             </div>
+            <button className='bg-green-500 flex justify-center w-full py-2 rounded mt-6 text-white hover:text-green-800 font-bold'>
+                Buy Now <ArrowRightIcon className='w-6 h-6 ml-2'></ArrowRightIcon>
+            </button>
         </div>
     );
 };
